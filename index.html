@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+ <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="robots" content="index, follow" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+<meta http-equiv="Cache-Control" content="post-check=0, pre-check=0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta name="Author" content="slawomirj" />
+<meta charset="iso-8859-2">
+ 
+<title>Manufaktura Contentu</title>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+<div class="row" >
+<div class="col-lg-6">
+<div id="section1" class="h-100">
+<p id="section1_cc"><h1>Manufaktura Contentu 1.9</h1></p>
+<br>
+
+<br>
+<input class="field" placeholder=" nazwa lub kod produktu" id="section1_field" type="text"><br><br>
+<div class="alert alert-light" id="info_message" style="height: 50px;">Podaj nazwę produktu, a następnie wybierz kategorie i markę.</div> <br>
+<button class="btn btn-outline-dark" id="section1_file">Szukaj PDF </button>
+<button class="btn btn-outline-dark" id="section1_NewMarkUp">Brak marki </button> <br><br>
+<button class="btn btn-outline-dark" id="section1_P_W_S">Szukaj producenta podając kod EAN </button><br><br>
+
+<div id="section1_NewMark2">
+<br>
+<a href="labels.html" ><button class="btn btn-outline-dark" id="section1_label" title="Karty i etykiety energetyczne"><i class="fas fa-tag" style='font-size:24px'></i></button></a>
+<a href="copywrite.html" ><button class="btn btn-outline-dark" id="section1_copy_wr2" title="Copywriting"><i class="fas fa-pen"style='font-size:24px'></i></button></a>
+<a href="metatagi.html" ><button class="btn btn-outline-dark" title="section1_MetaTagi"><i class='fas fa-highlighter' style='font-size:24px'></i></button></a>
+<a href="opener.html" ><button class="btn btn-outline-dark" title=""><i class='fas fa-tachometer-alt' style='font-size:24px'></i></button></a>
+<br><br>
+<a href="https://www.wetransfer.com/" target="_blank"><button class="btn btn-outline-dark" title="wetransfer"><i class="fas fa-download" style='font-size:24px'> </i></button></a>
+<a href="https://translate.google.pl/?hl=pl" target="_blank"><button class="btn btn-outline-dark" title="Google translate"><i class='fab fa-google'style='font-size:24px'></i></button></a>
+<a href="javascript:passwordGenerator()" class="text-decoration-none"><button class="btn btn-outline-dark" title="Generator haseł"><i class="fas fa-key" style='font-size:24px'></i></button></a>
+<a href="T.html"><button class="btn btn-outline-dark" title="Kod + Bug"><i class='fas fa-bug' style='font-size:24px'></i></button></a>
+</div>
+</div>
+</div>
+<script>
+function passwordGenerator() {
+var rand = Math.random().toString(16).slice(5);
+document.getElementById("info_message").innerHTML = rand;
+}
+//sprawdzanie pola
+var e1 =document.getElementById("section1_P_W_S").addEventListener("click",e_a,true);
+function e_a (){
+e1= document.getElementById("section1_field").value;
+e2 = parseFloat(e1);
+if (e1.length == 13 & isNaN(e2)==false) {
+ window.open("http://produktywsieci.gs1.pl/gtin/"+section1_field.value, "_blank");
+ } 
+ else if (e1.length == 12 & isNaN(e2)==false){
+  window.open("http://produktywsieci.gs1.pl/gtin/0"+section1_field.value, "_blank");
+ } 
+ else 
+ document.getElementById("info_message").innerHTML = "<strong> Info </strong> To nie jest kod EAN";
+//UPC
+//EAN 200xxx
+}
+//search file
+var a2 = document.getElementById("section1_file").addEventListener("click",f_button,true);
+ function f_button()
+ {
+if (section1_field.value.length >1){
+ window.open("http://www.google.pl/search?q= "+section1_field.value+ " filetype:pdf", "_blank");}
+ else 
+document.getElementById("info_message").innerHTML = "<strong> Info </strong> Brak wartości do szkania";
+}
+ //display new mark
+var a3 = document.getElementById("section1_NewMarkUp").addEventListener("click",nM1,true);
+function nM1(){
+var new_mark_input = document.createElement("INPUT");
+  new_mark_input.setAttribute("type", "text");
+  new_mark_input.setAttribute("class", "field");
+  new_mark_input.setAttribute("id", "section1_fieldNewMark");
+  new_mark_input.setAttribute("placeholder", "nowa marka");
+
+  var new_mark_search = document.createElement("BUTTON");
+  new_mark_search.setAttribute("class", "btn btn-outline-dark");
+  new_mark_search.setAttribute("id", "section1_NewMarkSearch");
+  new_mark_search.setAttribute("onclick", "s1()")
+  button_text = document.createTextNode("Szukaj");
+  new_mark_search.appendChild(button_text)
+  document.getElementById("info_message").innerHTML = " ";
+  document.getElementById("info_message").appendChild(new_mark_input);
+  document.getElementById("info_message").appendChild(new_mark_search);
+}
+ 
+ function s1(){
+   if(section1_field.value.length > 1 && +section1_fieldNewMark.value.length>1){
+ document.getElementById("section1_field"); 
+ document.getElementById("section1_fieldNewMark");  
+window.open("http://www.google.pl/search?q= "+section1_field.value+ " inurl:www."+section1_fieldNewMark.value+"", "_blank")}
+else
+alert("Obydwa pola muszą być wypełnione")
+}
+</script>	
+	<div class="col-lg-6">
+	<div id="section2_da" class="h-100">
+	 <div id="accordion">
+	  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#HA_Brands_list">AGD</a>
+	
+		</h4>
+    </div>
+    <div id="HA_Brands_list" data-parent="#accordion" class="panel-collapse collapse">
+    <div class="panel-body">	
+	<table class="table table-striped table-hover table-condensed .active">
+<tbody>
+ <tr>
+<td><input type="radio" value="Adler"> Adler</td>
+<td><input type="radio" value="Amica" /> Amica</td>
+<td><input type="radio" value="AEG" /> AEG</td>
+<td><input type="radio" value="Ariete" /> Ariete</td>
+</tr>
+<tr>
+<td><input type="radio" value="Babyliss" /> Babyliss</td>
+<td><input type="radio" value="Beko" /> Beko </td>
+<td><input type="radio" value="Bosch" /> Bosch </td>
+<td><input type="radio" value="Braun" /> Braun </td>
+</tr>
+<tr>
+<td><input type="radio" value="Clatronic" /> Clatronic </td>
+<td><input type="radio" value="Candy" /> Candy </td>
+<td><input type="radio" value="Ciarko" /> Ciarko </td>
+<td><input type="radio" value="DeLonghi" /> DeLonghi </td>
+</tr>
+<tr>
+<td><input type="radio" value="Dyson" /> Dyson </td>
+<td><input type="radio" value="Eldom" /> Eldom </td>
+<td><input type="radio" value="Franke" /> Franke </td>
+<td><input type="radio" value="Haier" /> Haier </td>
+</tr>
+<tr>
+<td><input type="radio" value="Hoover" /> Hoover </td>
+<td><input type="radio" value="Hotpoint" /> Hotpoint</td>
+<td><input type="radio" value="Indesit" /> Indesit </td>
+<td><input type="radio" value="Karcher" /> Karcher</td>
+</tr>
+<tr>
+<td><input type="radio" value="Karolik" /> Karolik</td>
+<td><input type="radio" value="Kenwood" /> Kenwood </td>
+<td><input type="radio" value="Kernau" /> Kernau </td>
+<td><input type="radio" value="Krups" /> Krups</td>
+</tr>
+<tr>
+<td><input type="radio" value="Liebherr" /> Liebherr </td>
+<td><input type="radio" value="LG" /> LG </td>
+<td><input type="radio" value="MPM" /> MPM</td>
+<td><input type="radio" value="Opti" /> Opti</td>
+</tr>
+<tr>
+<td><input type="radio" value="Opticum" /> Opticum</td>
+<td><input type="radio" value="Moulinex" /> Moulinex</td>
+<td><input type="radio" value="Panasonic" /> Panasonic</td>
+<td><input type="radio" value="Philips" /> Philips</td>
+</tr>
+<tr>
+<td><input type="radio" value="Princess" /> Princess</td>
+<td><input type="radio" value="Pyramis" /> Pyramis</td>
+<td><input type="radio" value="Remington" /> Remington</td>
+<td><input type="radio" value="Romix" /> Romix</td>
+</tr>
+<tr>
+<td><input type="radio" value="Rowenta" /> Rowenta </td>
+<td><input type="radio" value="Samsung" /> Samsung</td>
+<td><input type="radio" value="Sencor" /> Sencor</td>
+<td><input type="radio" value="Severin" /> Severin</td>
+</tr>
+<tr>
+<td><input type="radio" value="Siemens" /> Siemens</td>
+<td><input type="radio" value="Tefal" /> Tefal</td>
+<td><input type="radio" value="Teka" /> Teka</td> 
+<td><input type="radio" value="Whirlpool" /> Whirlpool</td>
+</tr>
+<tr>
+<td><input type="radio" value="Worwo" /> Worwo</td>
+<td><input type="radio" value="Zanussi" /> Zanussi</td>
+<td><input type="radio" value="Zelmer" /> Zelmer</td>
+<td></td>
+<td> </td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+ 
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" href="#Elec_Brands_list">RTV</a>
+</h4>
+</div>
+<div id="Elec_Brands_list" data-parent="#accordion" class="panel-collapse collapse">
+<div class="panel-body">
+<table class="table table-striped table-hover table-condensed .active">
+<tbody>
+<tr>
+<td> <input type="radio" value="4WORLD" /> 4WORLD</td>
+<td> <input type="radio" value="telecolor/" /> Akai</td>
+<td> <input type="radio" value="AKG" /> AKG</td>
+<td> <input type="radio" value="Alpine" /> Alpine </td>
+ </tr>
+<tr>
+<td><input type="radio" value="beatsbydre" /> Beats by Dr Dree </td>
+<td><input type="radio" value="Blaupunkt" /> Blaupunkt </td>
+<td><input type="radio" value="Denon" /> Denon</td>
+<td><input type="radio" value="Emmerson" /> Emmerson</td>
+</tr>
+<tr>
+<td><input type="radio" value="Grundig" /> Grundig</td>
+<td><input type="radio" value="Haier" /> Haier</td>
+<td><input type="radio" value="Hitachi" /> Hitachi</td>
+<td><input type="radio" value="Hyundai" /> Hyundai </td>
+</tr>
+<tr>
+<td><input type="radio" value="JBL" /> JBL</td>
+<td><input type="radio" value="JVC" /> JVC</td>
+<td><input type="radio" value="Lark" /> Lark</td>
+<td><input type="radio" value="Lenco" /> Lenco </td>
+</tr>
+<tr>
+<td><input type="radio" value="LG" /> LG</td>
+<td><input type="radio" value="Logilink" /> Logilink</td>
+<td><input type="radio" value="Manta" /> Manta</td>
+<td><input type="radio" value="Muse" /> Muse </td>
+</tr>
+<tr>
+<td><input type="radio" value="Navroad" /> Navroad</td>
+<td><input type="radio" value="Onkyo" /> Onkyo</td>
+<td><input type="radio" value="Panasonic" /> Panasonic</td>
+<td><input type="radio" value="Peaq" /> Peaq </td>
+</tr>
+<tr>
+<td><input type="radio" value="Peiying" /> Peiying</td>
+<td><input type="radio" value="Philips" /> Philips</td>
+<td><input type="radio" value="Pioneer" /> Pioneer</td>
+<td><input type="radio" value="Samsung" /> Samsung </td>
+</tr>
+<tr>
+<td><input type="radio" value="Sencor" /> Sencor</td>
+<td><input type="radio" value="Sennheiser" /> Sennheiser</td>
+<td><input type="radio" value="Sharp" /> Sharp</td>
+<td><input type="radio" value="Skullcandy" /> Skullcandy </td>
+</tr>
+<tr>
+<td><input type="radio" value="Sony" /> Sony</td>
+<td><input type="radio" value="Sennheiser" /> TCL</td>
+<td><input type="radio" value="Teac" /> Teac</td>
+<td><input type="radio" value="Technisat" /> Technisat </td>
+</tr>
+</tr>
+<td><input type="radio" value="Tracer" /> Tracer</td>
+<td><input type="radio" value="Vivanco" /> Vivanco</td>
+<td><input type="radio" value="Yamaha" /> Yamaha</td>
+</tr>
+</tbody>
+</table>	  
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" href="#Smart_Brands_list">Smartfony</a>
+</h4>
+</div>
+<div id="Smart_Brands_list" data-parent="#accordion" class="panel-collapse collapse">
+<div class="panel-body">
+<table class="table table-striped table-hover table-condensed .active">
+<tbody>
+ <tr>
+  <td><input type="radio" value="Alcatel" /> Altacel</td>
+ <td><input type="radio" value="Apple" /> Apple </td>
+ <td><input type="radio" value="HTC" /> HTC</td>
+<td><input type="radio" value="consumer.huawei.com" /> Huawei</td>
+
+ </tr>
+  <tr>
+  <td><input type="radio" value="Lenovo" /> Lenovo</td>
+  <td><input type="radio" value="LG" /> LG</td>
+  <td><input type="radio" value="Manta" /> Manta</td>
+  <td><input type="radio" value="Maxcom" /> Maxcom</td>
+  </tr>
+  <tr>
+  <td><input type="radio" value="Motorola" /> Motorola</td>
+  <td><input type="radio" value="Myphone" /> Myphone</td>
+  <td><input type="radio" value="Nokia" /> Nokia</td>
+  <td><input type="radio" value="Oppo" /> Oppo</td>
+  </tr>
+  <tr>
+  <td><input type="radio" value="Prestigio" /> Prestigio </td>
+  <td><input type="radio" value="Samsung" /> Samsung</td>
+  <td><input type="radio" value="Sony" /> Sony </td>
+  <td><input type="radio" value="Wiko" /> Wiko </td>
+  </tr>
+  <tr>
+  <td><input type="radio" value="Mi" /> Xiaomi</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  </tr>
+  <tr>
+  <td colspan="4">  <a href="https://www.mgsm.pl/pl/" target="_blank" class="text-decoration-none">  MGSM </td>
+  </tr>
+  </tr>
+  <tr>
+  <td colspan="4">  <a href="https://www.gsmarena.com/" target="_blank" class="text-decoration-none">  GSMArena </td>
+  </tr>
+  </tr>
+  <tr>
+  <td colspan="4"> <a href="https://www.devicespecifications.com/" target="_blank" class="text-decoration-none">  DeviceSpecifications  </td>
+  </tr>
+</tbody>
+</table>	  
+</div>
+</div>
+</div>
+	  
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse"  href="#IT_Brands_list">
+        Sprzęt komputerowy <i class='fas fa-ban'></i></a>
+      </h4>
+    </div>
+    <div id="IT_Brands_list" data-parent="#accordion" class="panel-collapse collapse">
+	<div class="panel-body">
+  <table class="table table-striped table-hover table-condensed .active" >
+<tbody>
+ 
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#Toys_Brands_list">
+        Zabawki </a>
+      </h4>
+    </div>
+    <div id="Toys_Brands_list" data-parent="#accordion" class="panel-collapse collapse">
+	<div class="panel-body">
+  <table class="table table-striped table-hover table-condensed .active" >
+  <tr>
+<td> <input type="radio" value="adamingo" /> Adamingo </td>
+<td> <input type="radio" value="barbie.mattel.com" /> Barbie</td>
+<td> <input type="radio" value="Clementoni" /> Clementoni</td>
+<td> <input type="radio" value="Cobi" /> Cobi</td>
+</tr>
+<tr>
+<td> <input type="radio" value="Fisher-price" /> Fisher-Price </td>
+<td> <input type="radio" value="Lego" /> Lego</td>
+<td> <input type="radio" value="Playmobil" /> Playmobil</td>
+<td> <input type="radio" value="Simba" /> Simba</td>
+</tr>
+<tr>
+<td> <input type="radio" value="Trefl" /> Trefl </td>
+<td> <input type="radio" value="Wader" /> Wader</td>
+<td> </td>
+<td> </td>
+</tr>
+<td> <input type="radio" value="products.hasbro.com" /> HASBRO </td>
+<td> <input type="radio" value="shop.mattel.com" /> MATTEL</td>
+<td> <input type="radio" value="shop.spinmaster.com" /> SPIN MASTER</td>
+<td> </td>
+<tbody>
+ 
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#House_Brands_list">
+        Dom i ogród <i class='fas fa-ban'></i></a>
+      </h4>
+    </div>
+    <div id="House_Brands_list" class="panel-collapse collapse">
+	<div class="panel-body">
+  <table class="table table-striped table-hover table-condensed .active" >
+<tbody>
+ 
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+ </div>
+
+
+<script>
+//????
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();  
+});
+$("[data-toggle=popover]")
+.popover({html:true})
+
+var a1 = document.getElementById("section2_da").addEventListener('click', searchInfo, true);
+function searchInfo(){
+var p="section1_field";
+document.getElementById("section1_field")
+s1f_a = section1_field.value.split(',');
+console.log(s1f_a.length)
+var radios = document.getElementsByTagName('input');
+var value;
+for (k =0; k <s1f_a.length; k++ ){
+for (var i = 0; i < radios.length; i++) {
+  if (radios[i].type === 'radio' && radios[i].checked) {
+    value = radios[i].value;    
+    console.log(s1f_a[k])
+	var n = value.endsWith(".com");
+	 if (n==true) {
+	window.open("http://www.google.pl/search?q= "+s1f_a[k]+" inurl:"+value+"", "_blank");
+    } else {
+    window.open("http://www.google.pl/search?q= "+s1f_a[k]+" inurl:www."+value+"", "_blank");}
+		//window.open("http://www.google.pl/search?q= "+field.value+" inurl:www."+value+"", "_blank");
+    }
+}}
+for (var i = 0; i < radios.length; i++){radios[i].checked = false}
+}
+</script>
+</div>
+</div>
+</div>
+<div id="footer">
+
+</div>
+</body>
+	

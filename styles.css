@@ -1,0 +1,206 @@
+html, body {
+    height: 100%;
+}
+.container-fluid{
+	background-color:white;
+}
+#section1 {
+    background-color:white  ;
+    color:#414141;
+    padding: 10px;
+    float: left;
+	font-size: 18px;
+	width:100%;
+	text-align: center;
+}
+#etykiety{
+	background-color:white;
+	text-align:center;
+	
+}
+.card-deck{
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	}
+a{
+	text-decoration:none;
+}
+#copy_wr{
+	background-color:white;
+	text-align:center;
+}
+
+#section2_da{
+	padding: 30px;
+	width:100%;
+	background-color:white;
+	text-align: center;
+    float: left;
+	color:black;
+}
+
+#karProd{
+padding: 20px;
+}
+
+#footer {
+    background-color:black;
+    color:white!important;
+    text-align:center;
+}
+#footer >a{
+	font-size:20px;
+    color:white;
+}
+
+#section1_cc
+{
+	text-align: left;
+	color:#E1E1EE;
+}
+
+#myTextarea{
+	width: 50% ;
+		
+}
+
+.ogg {
+	padding-left:50px;
+	padding-right:150px;
+	padding-top:50px
+}
+.field:focus{
+	background-color: white!important;
+
+	
+}
+#section1_field {
+    width: 50% ;
+	padding: 10px 10px;
+	border-left:none;
+	border-right:none;
+	border-top:none;
+    border-color:grey;
+}
+#section1_field:focus{
+	background-color: white!important;
+}
+#section1_fieldNewMark{
+    width: 35%;
+	padding: 10px 10px;
+	border-left:none;
+	border-right:none;
+	border-top:none;
+    border-color:grey;
+	
+}
+
+input[type=text]:focus {
+	
+	background-color: #c6c8ca;
+	
+}
+input[type=radio] {
+    font-family:'Open Sans', sans-serif;
+	float:left;
+}
+#szukaniePliku{
+	display: none;
+}
+#section1_NewMark{
+	display: none;
+}
+
+#section1_NewMark2{
+	padding: 20px;
+}
+
+.KP{
+	background: #f2f2f2;
+    border: none;
+}
+.KR{
+	background: white;
+    border: none;	
+}
+.panel-default .panel-heading:hover{
+    text-decoration:none;
+}
+.panel-default > .panel-heading{	
+	text-decoration:none;
+}
+.panel-title >a {
+	color : black;
+	font-size: 20px!important;
+	text-decoration:none;
+}
+.panel-heading{
+	border: 10px black;
+	padding: 2px 6px 2px 6px;
+	border-radius: 10px;
+}
+
+.panel-body{
+	border-left: 6px C0C0C0;
+	border-color: #343a40;
+	color:white!important;
+}
+
+.btn-default.btn-lg:hover {
+	 background: #f2f2f2; 
+	 color: white;
+}
+.button {
+	cursor: pointer;
+}
+
+.panel-heading {
+}
+
+.btn-outline-warning disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: grey;
+}
+.card-body > a{
+	border: 10px black;
+	padding: 2px 6px 2px 6px;
+	border-radius: 10px;
+}
+.col-lg-1#back{
+	margin:10px;
+}
+
+td>a {
+	
+	color:black;
+	
+}
+.accordion:hover {
+	background-color: #ccc;
+  }
+  .code{
+	padding: 10px;
+	background-color: black;
+	color:white!important;
+	font-family: 'Inconsolata', monospace;
+	text-align: left;
+}
+.td_info{
+	text-align: left;
+	padding: 10px;
+}
+#sekcja3_dA{
+	padding: 30px;
+	width:80%;
+	background-color:white;
+	text-align: center;
+    float: left;
+	color:black;
+}
+.panel-collapse {
+	width: 90%;
+
+}

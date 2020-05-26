@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+ <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="robots" content="index, follow" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+<meta http-equiv="Cache-Control" content="post-check=0, pre-check=0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta name="Author" content="slawomirj" />
+<meta charset="iso-8859-2">
+ 
+<title>Manufaktura Contentu - Meta</title>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+</head>
+<body>
+<div class="container-fluid">
+<div class="row" >
+<div class="col-lg-1" id="back">
+<a href="index.html"><button class="btn btn-outline-dark"><i class="far fa-arrow-alt-circle-left" style='font-size:24px'></i></button></a>
+</div>
+<div class="col-lg-11">
+<div id="meta_1" style="padding-left:50px;padding-right:150px;padding-top:50px">
+<strong>META Generator v.0.7 </strong><br><br>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 100px;">Rodzaj </span>
+    </div>
+    <input type="text" class="form-control" id="Rodzaj" name="Rodzaj">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 100px;"> Marka  </span>
+    </div>
+    <input type="text" class="form-control"  id="Marka" name="Marka">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text "style="width: 100px;"> Nazwa </span>
+    </div>
+    <input type="text" class="form-control" id="Nazwa" name="Nazwa">
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" style="width: 100px;">Kod(PN)</span>
+    </div>
+    <input type="text" class="form-control"  id="Kod" name="Kod">
+  </div>
+
+<br>
+</div>
+<div id="meta_b" style="padding-left:50px;padding-right:150px;">
+<button type="button" class="btn btn-outline-dark" id="meta_start" ">Generuj</button><br><br>
+<br>
+</div>
+<div id="meta_2" style="padding-left:50px;padding-bottom:30px;height: 80px;">
+</div>
+<div style="padding-left:50px;padding-right:150px;padding-top:10px">
+  <script>
+    var m1 =document.getElementById("meta_start").addEventListener("click",alan,true);
+    function alan (){
+    var mm1= document.getElementById("Rodzaj").value;
+    var mm2= document.getElementById("Marka").value;
+    var km2= document.getElementById("Kod").value;
+    var xm3= document.getElementById("Nazwa").value;
+    var spaceCount = (xm3.split(" ").length -1);
+    var sm1 = xm3.split(" ");
+    var mm3 = xm3.replace(/ /g,"");
+    if (spaceCount <= 2 & km2.length == 0)
+    {document.getElementById("meta_2").innerHTML = ""+mm1+" "+mm2+" "+mm3+", "+mm1+" "+mm3+", "+mm2+" "+mm3+", "+xm3+", "+mm3+"";}
+    else if (spaceCount == 3 & km2.length == 0)
+    {document.getElementById("meta_2").innerHTML = ""+mm1+" "+mm2+" "+mm3+", "+mm1+" "+mm3+", "+mm2+" "+mm3+", "+sm1[0]+" "+sm1[1]+""+sm1[2]+", "+xm3+", "+mm3+"";}
+    else if (spaceCount == 4 & km2.length == 0)
+    {document.getElementById("meta_2").innerHTML = ""+mm1+" "+mm2+" "+mm3+", "+mm1+" "+mm3+", "+mm2+" "+mm3+", "+sm1[0]+" "+sm1[1]+""+sm1[2]+""+sm1[3]+", "+sm1[0]+" "+sm1[1]+" "+sm1[2]+""+sm1[3]+", "+xm3+", "+mm3+""; }
+    else if (spaceCount == 2 & km2.length != 0)
+    {document.getElementById("meta_2").innerHTML = ""+mm1+" "+mm2+" "+mm3+" "+km2+", "+mm1+" "+mm3+" "+km2+", "+mm2+" "+mm3+" "+km2+", "+xm3+", "+mm3+" "+km2+"";}
+    else if (spaceCount == 3 & km2.length != 0)
+    {document.getElementById("meta_2").innerHTML = ""+mm1+" "+mm2+" "+mm3+" "+km2+", "+mm1+" "+mm3+" "+km2+", "+mm2+" "+mm3+" "+km2+", "+sm1[0]+" "+sm1[1]+""+sm1[2]+" "+km2+", "+xm3+", "+mm3+" "+km2+""; }
+    else if (spaceCount == 4 & km2.length != 0)
+    {document.getElementById("meta_2").innerHTML = ""+mm1+" "+mm2+" "+mm3+" "+km2+", "+mm1+" "+mm3+" "+km2+", "+mm2+" "+mm3+" "+km2+", "+sm1[0]+" "+sm1[1]+""+sm1[2]+""+sm1[3]+" "+km2+", "+sm1[0]+" "+sm1[1]+" "+sm1[2]+""+sm1[3]+" "+km2+", "+xm3+", "+mm3+" "+km2+""; }
+    else if (spaceCount =>5)
+    {alert ("tryb nie obsługiwany")}
+    
+    }
+    </script>
+ <div class="alert alert-danger" >
+* W polach nie może być spacji przed lub po wartości. <br>
+* Aby wygnerować informację z PN w nazwa produktu musi mieć 2 spacje (mogą być na końcu)).<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+	</body>
+	
