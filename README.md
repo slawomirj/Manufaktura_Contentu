@@ -8,6 +8,6 @@ https://slawomirj.github.io/Manufaktura_Contentu/index.html
 * in opener the ability to search for any number of products after pasting in the textareab product name and mark
 
 Test:
-50 test 
-Page Object Patern
-conftest with a screenshot in case of a failed test
+* 50 test 
+* Page Object Patern
+* conftest with a screenshot in case of a failed test
